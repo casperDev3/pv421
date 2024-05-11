@@ -1,0 +1,113 @@
+/* !HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 56px;
+    &__logo {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        > img {
+            width: 156px;
+            height: 64px;
+        }
+    }
+    nav {
+        &.main-menu {
+            > ul {
+                margin: 0;
+                padding: 0;
+
+                display: flex;
+                align-items: center;
+                > li {
+                    list-style: none;
+                    margin-left: 20px;
+                    > a {
+                        padding: 10px;
+                        text-decoration: none;
+                        color: $primary-color;
+                        font-family: Roboto;
+                        font-size: 18px;
+                        font-weight: 700;
+                        &:hover {
+                            color: $secondary-color !important;
+                        }
+                    }
+                }
+                :last-child {
+                    > a {
+                        color: #fffefc;
+                        padding: 10px 26px !important;
+                        background: $primary-color;
+                        border-radius: 12px;
+                    }
+                }
+            }
+        }
+        &.burger-menu {
+            display: none;
+        }
+    }
+}
+
+/* !RESPONSIVE HEADER */
+@media screen and (width <= 1140px) {
+    .header > nav.main-menu {
+        display: none;
+    }
+    .header > nav.burger-menu {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        z-index: 999;
+
+        background-color: $secondary-color;
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+
+        transform: translateX(100vw);
+        transition: 0.4s;
+    }
+
+    .header > nav.burger-menu.active {
+        transform: translateX(0);
+        transition: 0.4s;
+    }
+
+    .header > nav.burger-menu > ul {
+        margin: 80px 0 0 0;
+        padding: 0;
+    }
+
+    .header > nav.burger-menu > ul > li {
+        list-style: none;
+    }
+
+    .header > nav.burger-menu > ul > li > a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        font-size: 32px;
+        padding: 14px 0;
+    }
+
+    .header.active {
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        background-color: #fff;
+        margin: 0;
+    }
+}
+
+@media screen and (1200px <= width <= 1300px) {
+    .header nav > ul > :last-child > a {
+        background-color: red;
+    }
+}
